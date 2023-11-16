@@ -16,7 +16,6 @@ def todo_progress(employee_id):
 
     todos = requests.get("{}/todos".format(data_url),
                          params={"userId": employee_id}).json()
-    todos_finished = [task for task in todos if task["completed"]]
 
     json_file = "{}.json".format(employee_id)
     json_data = {str(employee_id): [{
