@@ -23,8 +23,12 @@ def todo_progress(employee_id):
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, mode="w", newline="") as file:
         for task in todos:
-            csv.writer(file).writerow([employee_id, name,
-                                      str(task["completed"]), task["title"]])
+            csv.writer(file, quoting=csv.QUOTE_ALL).writerow([
+                employee_id,
+                name,
+                str(task["completed"]),
+                task["title"]
+            ])
 
 
 if __name__ == "__main__":
