@@ -20,7 +20,7 @@ def todo_progress():
         name = data.get("username")
 
         todos = requests.get("{}/todos".format(data_url),
-                            params={"userId": employee_id}).json()
+                             params={"userId": employee_id}).json()
 
         json_data[str(employee_id)] = [{
             "task": task["title"],
@@ -33,6 +33,7 @@ def todo_progress():
     if json_data:
         with open("todo_all_employees.json", mode="w") as file:
             json.dump(json_data, file)
+
 
 if __name__ == "__main__":
     todo_progress()
