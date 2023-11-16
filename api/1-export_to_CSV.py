@@ -16,7 +16,6 @@ def todo_progress(employee_id):
 
     todos = requests.get("{}/todos".format(data_url),
                          params={"userId": employee_id}).json()
-    todos_finished = [task for task in todos if task["completed"]]
 
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, mode="w", newline="") as file:
